@@ -123,32 +123,32 @@ ProjectDT/fast:
 	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/build
 .PHONY : ProjectDT/fast
 
-main.o: main.cpp.o
+Source/main.o: Source/main.cpp.o
 
-.PHONY : main.o
+.PHONY : Source/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/main.cpp.o
-.PHONY : main.cpp.o
+Source/main.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/main.cpp.o
+.PHONY : Source/main.cpp.o
 
-main.i: main.cpp.i
+Source/main.i: Source/main.cpp.i
 
-.PHONY : main.i
+.PHONY : Source/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/main.cpp.i
-.PHONY : main.cpp.i
+Source/main.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/main.cpp.i
+.PHONY : Source/main.cpp.i
 
-main.s: main.cpp.s
+Source/main.s: Source/main.cpp.s
 
-.PHONY : main.s
+.PHONY : Source/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/main.cpp.s
-.PHONY : main.cpp.s
+Source/main.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/main.cpp.s
+.PHONY : Source/main.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ProjectDT"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Source/main.o"
+	@echo "... Source/main.i"
+	@echo "... Source/main.s"
 .PHONY : help
 
 

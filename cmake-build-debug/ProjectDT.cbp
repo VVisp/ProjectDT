@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/main.cpp">
+		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp">
 			<Option target="ProjectDT"/>
 		</Unit>
 		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/CMakeLists.txt">
