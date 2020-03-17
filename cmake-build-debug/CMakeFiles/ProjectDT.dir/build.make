@@ -57,27 +57,27 @@ include CMakeFiles/ProjectDT.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ProjectDT.dir/flags.make
 
-CMakeFiles/ProjectDT.dir/main.cpp.o: CMakeFiles/ProjectDT.dir/flags.make
-CMakeFiles/ProjectDT.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanbrunau/Documents/ProgAlg/ProjectDT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProjectDT.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectDT.dir/main.cpp.o -c /Users/stanbrunau/Documents/ProgAlg/ProjectDT/main.cpp
+CMakeFiles/ProjectDT.dir/Source/main.cpp.o: CMakeFiles/ProjectDT.dir/flags.make
+CMakeFiles/ProjectDT.dir/Source/main.cpp.o: ../Source/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/stanbrunau/Documents/ProgAlg/ProjectDT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProjectDT.dir/Source/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectDT.dir/Source/main.cpp.o -c /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp
 
-CMakeFiles/ProjectDT.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjectDT.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanbrunau/Documents/ProgAlg/ProjectDT/main.cpp > CMakeFiles/ProjectDT.dir/main.cpp.i
+CMakeFiles/ProjectDT.dir/Source/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjectDT.dir/Source/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp > CMakeFiles/ProjectDT.dir/Source/main.cpp.i
 
-CMakeFiles/ProjectDT.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjectDT.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanbrunau/Documents/ProgAlg/ProjectDT/main.cpp -o CMakeFiles/ProjectDT.dir/main.cpp.s
+CMakeFiles/ProjectDT.dir/Source/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjectDT.dir/Source/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp -o CMakeFiles/ProjectDT.dir/Source/main.cpp.s
 
 # Object files for target ProjectDT
 ProjectDT_OBJECTS = \
-"CMakeFiles/ProjectDT.dir/main.cpp.o"
+"CMakeFiles/ProjectDT.dir/Source/main.cpp.o"
 
 # External object files for target ProjectDT
 ProjectDT_EXTERNAL_OBJECTS =
 
-ProjectDT: CMakeFiles/ProjectDT.dir/main.cpp.o
+ProjectDT: CMakeFiles/ProjectDT.dir/Source/main.cpp.o
 ProjectDT: CMakeFiles/ProjectDT.dir/build.make
 ProjectDT: CMakeFiles/ProjectDT.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/stanbrunau/Documents/ProgAlg/ProjectDT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ProjectDT"
