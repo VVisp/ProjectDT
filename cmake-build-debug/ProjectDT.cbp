@@ -83,6 +83,12 @@
 		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp">
 			<Option target="ProjectDT"/>
 		</Unit>
+		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.cpp">
+			<Option target="ProjectDT"/>
+		</Unit>
+		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h">
+			<Option target="ProjectDT"/>
+		</Unit>
 		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
