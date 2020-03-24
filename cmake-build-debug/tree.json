@@ -1,0 +1,17 @@
+{
+	"name": "Model_B3 > 0.5",
+	"children": [{
+			"name": "4513 of Price"
+		},
+		{
+			"name": "Condition_fair > 0.5",
+			"children": [{
+					"name": "267 of Price"
+				},
+				{
+					"name": "1172 of Price"
+				}
+			]
+		}
+	]
+}
