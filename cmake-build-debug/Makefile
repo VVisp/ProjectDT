@@ -150,6 +150,33 @@ Source/main.cpp.s:
 	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/main.cpp.s
 .PHONY : Source/main.cpp.s
 
+Source/tree.o: Source/tree.cpp.o
+
+.PHONY : Source/tree.o
+
+# target to build an object file
+Source/tree.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/tree.cpp.o
+.PHONY : Source/tree.cpp.o
+
+Source/tree.i: Source/tree.cpp.i
+
+.PHONY : Source/tree.i
+
+# target to preprocess a source file
+Source/tree.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/tree.cpp.i
+.PHONY : Source/tree.cpp.i
+
+Source/tree.s: Source/tree.cpp.s
+
+.PHONY : Source/tree.s
+
+# target to generate assembly for a file
+Source/tree.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/tree.cpp.s
+.PHONY : Source/tree.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... Source/main.o"
 	@echo "... Source/main.i"
 	@echo "... Source/main.s"
+	@echo "... Source/tree.o"
+	@echo "... Source/tree.i"
+	@echo "... Source/tree.s"
 .PHONY : help
 
 
