@@ -7,16 +7,20 @@
 #IncludeRegexTransform: 
 
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp
-iostream
--
 tree.h
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h
 
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.cpp
 tree.h
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h
+iostream
+-
+fstream
+-
 
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h
 list
+-
+string
 -
 

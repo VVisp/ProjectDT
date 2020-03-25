@@ -2,43 +2,42 @@
 // Created by Stan Brunau on 21/03/2020.
 //
 #include <list>
+#include <string>
+
 #ifndef PROJECTDT_TREE_H
 #define PROJECTDT_TREE_H
 
-template <typename T>
 class Node {
-    T element;
+    std::string element;
     Node* parent;
     Node* children;
     Node(): element(), parent(nullptr), children(nullptr){}; //CONSTRUCTOR
 };
 
-template <typename T>
-class Position;
-
-template <typename T>
 class Tree {
 public:
-    typedef std::list<Position<T>> PositionList;
-    template <typename E>
     class Position {
     private:
-        Node<E>* v;
+        Node* v;
     public:
-        E& operator*();
+        typedef std::list<Position> PositionList;
+
+        //std::string& operator*();
         Position parent() const;
         PositionList children() const;
         bool isRoot() const;
         bool isExternal() const;
 
-        template <typename G>
         friend class Tree;
     };
+    typedef std::list<Position> PositionList;
 
     int size() const;
     bool empty() const;
-    Position<T> root() const;
+    Position root() const;
     PositionList positions() const;
+
+    void load(const std::string&);
 };
 
 #endif //PROJECTDT_TREE_H

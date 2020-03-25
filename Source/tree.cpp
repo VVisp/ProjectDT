@@ -2,36 +2,70 @@
 // Created by Stan Brunau on 21/03/2020.
 //
 #include "tree.h"
+#include <iostream>
+#include <fstream>
 
-// Position
+void Tree::load(const std::string& filename) {
+    std::ifstream json;
+    json.open(filename);
 
-template<typename T>
-template<typename E>
-E &Tree<T>::Position<E>::operator*() {
-    //...
+    if (!json.is_open()) {
+        return;
+    }
+
+    while (json) {
+        std::string line;
+        getline(json, line, ':');
+
+        std::string leaf;
+        json >> leaf;
+
+        leaf.erase(leaf.begin());
+
+        if (leaf == "{") {
+            continue;
+        }
+
+        std::cout << leaf << std::endl;
+    }
+
+    json.close();
 }
 
-template<typename T>
-template<typename E>
-bool Tree<T>::Position<E>::isRoot() const {
+
+/*
+std::string &Tree::Position::operator*() {
+
+} */
+
+Tree::Position Tree::Position::parent() const {
+    return {};
+}
+
+Tree::PositionList Tree::Position::children() const {
+    return Tree::PositionList();
+}
+
+bool Tree::Position::isRoot() const {
     return false;
 }
 
-template<typename T>
-template<typename E>
-bool Tree<T>::Position<E>::isExternal() const {
+bool Tree::Position::isExternal() const {
     return false;
 }
 
-
-// Tree
-
-template<typename T>
-int Tree<T>::size() const {
+int Tree::size() const {
     return 0;
 }
 
-template<typename T>
-bool Tree<T>::empty() const {
+bool Tree::empty() const {
     return false;
+}
+
+Tree::Position Tree::root() const {
+    return {};
+}
+
+Tree::PositionList Tree::positions() const {
+    return Tree::PositionList();
 }
