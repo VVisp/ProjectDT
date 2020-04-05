@@ -2,70 +2,62 @@
 // Created by Stan Brunau on 21/03/2020.
 //
 #include "tree.h"
-#include <iostream>
-#include <fstream>
 
-void Tree::load(const std::string& filename) {
-    std::ifstream json;
-    json.open(filename);
+// OUT OF LINE DEFINITIONS VAN CLASS NODE
 
-    if (!json.is_open()) {
-        return;
-    }
-
-    while (json) {
-        std::string line;
-        getline(json, line, ':');
-
-        std::string leaf;
-        json >> leaf;
-
-        leaf.erase(leaf.begin());
-
-        if (leaf == "{") {
-            continue;
-        }
-
-        std::cout << leaf << std::endl;
-    }
-
-    json.close();
+template<typename E>
+E Node<E>::getElement() {
+    return element;
 }
 
-
-/*
-std::string &Tree::Position::operator*() {
-
-} */
-
-Tree::Position Tree::Position::parent() const {
-    return {};
+template<typename E>
+Node<E>* Node<E>::getParent() {
+    return nullptr;
 }
 
-Tree::PositionList Tree::Position::children() const {
-    return Tree::PositionList();
+template<typename E>
+list<Node<E>*> Node<E>::getChildren() {
+    return list<Node*>();
 }
 
-bool Tree::Position::isRoot() const {
-    return false;
+template<typename E>
+bool Node<E>::isRoot() const {
+    return parent == nullptr;
 }
 
-bool Tree::Position::isExternal() const {
-    return false;
+// OUT OF LINE DEFINITIONS VAN CLASS TREE
+
+template<typename T>
+Tree<T>::Tree() {
+    Node<T> myNode = Node<T>();
+    Position<T> myPosition{};
+    myPosition.v = &myNode;
+    size = 1;
+    root.v = myPosition.v;
+    empty = false;
 }
 
-int Tree::size() const {
-    return 0;
+template<typename T>
+int Tree<T>::getSize() const {
+    return size;
 }
 
-bool Tree::empty() const {
-    return false;
+template<typename T>
+bool Tree<T>::isEmpty() const {
+    return empty;
 }
 
-Tree::Position Tree::root() const {
-    return {};
+template<typename T>
+Position<T> Tree<T>::getRoot() const {
+    return Position<T>();
 }
 
-Tree::PositionList Tree::positions() const {
-    return Tree::PositionList();
+template<typename T>
+list<Position<T>> Tree<T>::getPositions() const {
+    return list<Position<T>>();
+}
+
+template<typename T>
+void Tree<T>::print() {
+    cout << "Tree with root: " << root.v << endl;
 }

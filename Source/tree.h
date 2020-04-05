@@ -3,41 +3,77 @@
 //
 #include <list>
 #include <string>
+#include <iostream>
 
 #ifndef PROJECTDT_TREE_H
 #define PROJECTDT_TREE_H
 
+using namespace std;
+
+template <typename E>
 class Node {
-    std::string element;
+private:
+    E element;
     Node* parent;
     Node* children;
-    Node(): element(), parent(nullptr), children(nullptr){}; //CONSTRUCTOR
-};
-
-class Tree {
 public:
-    class Position {
-    private:
-        Node* v;
-    public:
-        typedef std::list<Position> PositionList;
-
-        //std::string& operator*();
-        Position parent() const;
-        PositionList children() const;
-        bool isRoot() const;
-        bool isExternal() const;
-
-        friend class Tree;
-    };
-    typedef std::list<Position> PositionList;
-
-    int size() const;
-    bool empty() const;
-    Position root() const;
-    PositionList positions() const;
-
-    void load(const std::string&);
+    Node(): element(), parent(nullptr), children(nullptr){};
+    E getElement();
+    Node* getParent();
+    list<Node*> getChildren();
+    bool isRoot() const;
 };
+
+template <typename G>
+struct Position {
+    Node<G>* v;
+};
+
+template <typename T>
+class Tree {
+private:
+    int size;
+    bool empty;
+    Position<T> root;
+    list<Position<T>> positions;
+public:
+    Tree();
+
+    int getSize() const; // Number of nodes
+    bool isEmpty() const; // Is tree empty?
+    Position<T> getRoot() const; // Get the root
+    list<Position<T>> getPositions() const; // Get position of all nodes
+
+    void print();
+};
+
+/*
+void Tree::load(const std::string& filename) {
+    std::ifstream json;
+    json.open(filename);
+
+    if (!json.is_open()) {
+        return;
+    }
+
+    while (json) {
+        std::string line;
+        getline(json, line, ':');
+
+        std::string leaf;
+        json >> leaf;
+
+        //leaf.erase(leaf.begin());
+
+        if (leaf == "{") {
+            continue;
+        }
+
+        std::cout << leaf << std::endl;
+    }
+
+    json.close();
+}
+*/
 
 #endif //PROJECTDT_TREE_H
