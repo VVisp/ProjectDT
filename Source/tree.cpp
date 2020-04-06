@@ -16,11 +16,6 @@ Node<E>* Node<E>::getParent() {
 }
 
 template<typename E>
-list<Node<E>*> Node<E>::getChildren() {
-    return list<Node*>();
-}
-
-template<typename E>
 bool Node<E>::isRoot() const {
     return parent == nullptr;
 }
