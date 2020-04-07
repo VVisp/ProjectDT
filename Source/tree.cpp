@@ -20,6 +20,11 @@ bool Node<E>::isRoot() const {
     return parent == nullptr;
 }
 
+template<typename E>
+list<Node<E>*> Node<E>::getChildren() {
+    return list<Node *>();
+}
+
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
 
 template<typename T>
@@ -55,4 +60,12 @@ list<Position<T>> Tree<T>::getPositions() const {
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
+}
+
+template <typename E>
+void Tree<E>::load(string& filename) {
+    ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
+    json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
+    json jsonchildren = j["children"];
+    rootNode = new Node<E>(j["name"], nullptr, jsonchildren, levels);
 }
