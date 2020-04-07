@@ -23,38 +23,17 @@ private:
     NodeArray children; //since  a node can have multiple children, this describes a list of pointers to all children
 public:
     Node(): element(), parent(nullptr), children(NULL){}; //default constructor
-    Node(E el, Node* par = nullptr, json child = static_cast<json>(NULL), int/*&*/ length = 0); //parameter constructor
+    Node(E el, Node* p, NodeArray ch): element(el), parent(p), children(ch){}; //parameter constructor
     E getElement(); //function to get the Element
     Node* getParent(); //function to get the Parent
     list<Node*> getChildren(); //function to get the Children
     bool isRoot() const; //function to see if a Node is the RootNode
 };
 
-
-template <typename E> 
-Node<E>::Node(E el, Node* par, json child, int/*&*/ length) {
-    /*
-    element = el;
-    parent = par;
-    if (!child.isRoot()) { //if the Node is not a Root, process its children
-        length++;
-        NodeArray ChildrenArray;
-        //todo: gebruik functie om de node een level omhoog te duwen zodat het kind hier kan komen
-        // voer deze functie dan uit op alle kinderen om zo recursief heel de boom op te bouwen
-        children = ChildrenArray;
-    }
-     */
-};
-
-
-
-
 template <typename G>
 struct Position {
     Node<G>* v;
 };
-
-
 
 template <typename T>
 class Tree {
@@ -64,16 +43,15 @@ private:
     Position<T> root;
     list<Position<T>> positions;
 public:
-    Tree(); // constuctor
-    int levels; // the number of levels in the tree
-    Node<T>* rootNode; //The base level of the tree
+    Tree():size(0), empty(true), root(Position<T>()), positions(list<Position<T>>()){}; // constuctor: constructs a tree with a single root node
+    void addNode(); // Add another node to the tree
 
     int getSize() const; // Number of nodes
     bool isEmpty() const; // Is tree empty?
     Position<T> getRoot() const; // Get the root
     list<Position<T>> getPositions() const; // Get position of all nodes
 
-    void load(string& filename); //function to load a jsonfile in tree-format
+    void load(string filename); //function to load a jsonfile in tree-format
     void print(); // function to print the tree
     //string estimate(... //function to display the value
 };

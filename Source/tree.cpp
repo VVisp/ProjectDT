@@ -26,16 +26,23 @@ list<Node<E>*> Node<E>::getChildren() {
 }
 
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
-
+/*
 template<typename T>
 Tree<T>::Tree() {
-    Node<T> myNode = Node<T>();
+    Node<T> root_node = Node<T>();
     Position<T> myPosition{};
-    myPosition.v = &myNode;
+    myPosition.v = &root_node;
     size = 1;
     root.v = myPosition.v;
     empty = false;
 }
+ */
+
+template<typename T>
+void Tree<T>::addNode() {
+
+}
+
 
 template<typename T>
 int Tree<T>::getSize() const {
@@ -63,9 +70,11 @@ void Tree<T>::print() {
 }
 
 template <typename E>
-void Tree<E>::load(string& filename) {
+void Tree<E>::load(string filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
-    json jsonchildren = j["children"];
-    rootNode = new Node<E>(j["name"], nullptr, jsonchildren, levels);
+
+    string el = j.at("name").dump();
+    Node<string> rootNode = Node<string>(el, nullptr, {nullptr});
+    cout << rootNode.getElement() << endl;
 }
