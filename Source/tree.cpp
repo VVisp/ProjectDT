@@ -70,11 +70,13 @@ void Tree<T>::print() {
 }
 
 template <typename E>
-void Tree<E>::load(string filename) {
+void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
 
     string el = j.at("name").dump();
     Node<string> rootNode = Node<string>(el, nullptr, {nullptr});
-    cout << rootNode.getElement() << endl;
+    Position<string> rootPosition{};
+    rootPosition.v = &rootNode;
+    root = rootPosition;
 }

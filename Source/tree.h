@@ -51,7 +51,7 @@ public:
     Position<T> getRoot() const; // Get the root
     list<Position<T>> getPositions() const; // Get position of all nodes
 
-    void load(string filename); //function to load a jsonfile in tree-format
+    void load(const string& filename); //function to load a jsonfile in tree-format
     void print(); // function to print the tree
     //string estimate(... //function to display the value
 };
