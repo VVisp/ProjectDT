@@ -67,6 +67,7 @@ list<Position<T>> Tree<T>::getPositions() const {
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
+    cout << root.v->getElement() << endl;
 }
 
 template <typename E>
