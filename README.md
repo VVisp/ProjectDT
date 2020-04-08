@@ -1,5 +1,6 @@
 # Project P&A: Regressiebomen
-Voortgang: Een basis voor de Tree structuur is gemaakt maar weet niet of deze effectief functioneel is.
+!Er zijn nu 2 branches: Master en Experimental
+  In experimental heb ik geprobeerd voort te zetten waar jij in master aan begonnen was
 
 1) Bouw in C++ een functie load(string filename) in de klasse Tree die een JSON file kan
 inlezen en omzetten naar de gewenste Tree datastructuur.
