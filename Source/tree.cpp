@@ -26,16 +26,23 @@ list<Node<E>*> Node<E>::getChildren() {
 }
 
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
-
+/*
 template<typename T>
 Tree<T>::Tree() {
-    Node<T> myNode = Node<T>();
+    Node<T> root_node = Node<T>();
     Position<T> myPosition{};
-    myPosition.v = &myNode;
+    myPosition.v = &root_node;
     size = 1;
     root.v = myPosition.v;
     empty = false;
 }
+ */
+
+template<typename T>
+void Tree<T>::addNode() {
+
+}
+
 
 template<typename T>
 int Tree<T>::getSize() const {
@@ -60,12 +67,18 @@ list<Position<T>> Tree<T>::getPositions() const {
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
+    cout << "Root with element: " << root.v->getElement() << endl;
 }
 
 template <typename E>
-void Tree<E>::load(string& filename) {
+void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
-    json jsonchildren = j["children"];
-    rootNode = new Node<E>(j["name"], nullptr, jsonchildren, levels);
+
+    if (empty) {
+        string el = format(j, "name"); // The JSON object gets converted into a string containing the value of the first key
+        root = Position<string> {new Node<string>(el, nullptr, {nullptr})}; // The root node gets initialized
+        empty = true; // The tree is no longer empty
+        size = 1;
+    }
 }

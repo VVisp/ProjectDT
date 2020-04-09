@@ -4,9 +4,15 @@
 CMakeFiles/ProjectDT.dir/Source/main.cpp.o
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/lib/json.hpp
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp
+ /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.cpp
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h
+CMakeFiles/ProjectDT.dir/Source/simple_format.cpp.o
+ /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/lib/json.hpp
+ /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.cpp
+ /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h
 CMakeFiles/ProjectDT.dir/Source/tree.cpp.o
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/lib/json.hpp
+ /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.cpp
  /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h

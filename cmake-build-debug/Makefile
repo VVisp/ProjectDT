@@ -150,6 +150,33 @@ Source/main.cpp.s:
 	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/main.cpp.s
 .PHONY : Source/main.cpp.s
 
+Source/simple_format.o: Source/simple_format.cpp.o
+
+.PHONY : Source/simple_format.o
+
+# target to build an object file
+Source/simple_format.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/simple_format.cpp.o
+.PHONY : Source/simple_format.cpp.o
+
+Source/simple_format.i: Source/simple_format.cpp.i
+
+.PHONY : Source/simple_format.i
+
+# target to preprocess a source file
+Source/simple_format.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/simple_format.cpp.i
+.PHONY : Source/simple_format.cpp.i
+
+Source/simple_format.s: Source/simple_format.cpp.s
+
+.PHONY : Source/simple_format.s
+
+# target to generate assembly for a file
+Source/simple_format.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectDT.dir/build.make CMakeFiles/ProjectDT.dir/Source/simple_format.cpp.s
+.PHONY : Source/simple_format.cpp.s
+
 Source/tree.o: Source/tree.cpp.o
 
 .PHONY : Source/tree.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Source/main.o"
 	@echo "... Source/main.i"
 	@echo "... Source/main.s"
+	@echo "... Source/simple_format.o"
+	@echo "... Source/simple_format.i"
+	@echo "... Source/simple_format.s"
 	@echo "... Source/tree.o"
 	@echo "... Source/tree.i"
 	@echo "... Source/tree.s"

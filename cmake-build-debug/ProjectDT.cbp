@@ -83,6 +83,12 @@
 		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp">
 			<Option target="ProjectDT"/>
 		</Unit>
+		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.cpp">
+			<Option target="ProjectDT"/>
+		</Unit>
+		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h">
+			<Option target="ProjectDT"/>
+		</Unit>
 		<Unit filename="/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.cpp">
 			<Option target="ProjectDT"/>
 		</Unit>
