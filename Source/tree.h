@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 #include "lib/json.hpp"
 using json = nlohmann::json;

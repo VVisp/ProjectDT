@@ -67,17 +67,17 @@ list<Position<T>> Tree<T>::getPositions() const {
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
-    cout << root.v->getElement() << endl;
+    cout << "Root with element: " << root.v->getElement() << endl;
 }
 
 template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
-
     string el = j.at("name").dump();
+    el.erase(el.find('>'));
+    el.erase(remove(el.begin(), el.end(), '"'), el.end());
     Node<string> rootNode = Node<string>(el, nullptr, {nullptr});
-    Position<string> rootPosition{};
-    rootPosition.v = &rootNode;
-    root = rootPosition;
+    root = Position<string> {&rootNode};
+    cout << root.v->getElement() << endl;
 }
