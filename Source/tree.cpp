@@ -76,11 +76,9 @@ void Tree<E>::load(const string& filename) {
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
 
     if (empty) {
-        string el = format(j, "name");
-        root = Position<string> {new Node<string>(el, nullptr, {nullptr})};
-        empty = true;
+        string el = format(j, "name"); // The JSON object gets converted into a string containing the value of the first key
+        root = Position<string> {new Node<string>(el, nullptr, {nullptr})}; // The root node gets initialized
+        empty = true; // The tree is no longer empty
         size = 1;
     }
-
-    cout << j.at("children") << endl;
 }
