@@ -3,4 +3,4 @@ project(ProjectDT)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ProjectDT Source/main.cpp Source/tree.h Source/tree.cpp)
+add_executable(ProjectDT Source/main.cpp Source/tree.h Source/tree.cpp Source/simple_format.h Source/simple_format.cpp)

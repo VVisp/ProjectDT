@@ -74,10 +74,13 @@ template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
-    string el = j.at("name").dump();
-    el.erase(el.find('>'));
-    el.erase(remove(el.begin(), el.end(), '"'), el.end());
-    Node<string> rootNode = Node<string>(el, nullptr, {nullptr});
-    root = Position<string> {&rootNode};
-    cout << root.v->getElement() << endl;
+
+    if (empty) {
+        string el = format(j, "name");
+        root = Position<string> {new Node<string>(el, nullptr, {nullptr})};
+        empty = true;
+        size = 1;
+    }
+
+    cout << j.at("children") << endl;
 }

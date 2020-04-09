@@ -7,6 +7,7 @@
 #include <fstream>
 #include <algorithm>
 
+#include "simple_format.h"
 #include "lib/json.hpp"
 using json = nlohmann::json;
 
@@ -39,7 +40,7 @@ struct Position {
 template <typename T>
 class Tree {
 private:
-    int size; //
+    int size; // Amount of layers inside the tree
     bool empty;
     Position<T> root;
     list<Position<T>> positions;
