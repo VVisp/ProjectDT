@@ -1,4 +1,5 @@
 # Project P&A: Regressiebomen
+!Er zijn enkele TODO's in de bestanden toegevoegd
 
 1) Bouw in C++ een functie load(string filename) in de klasse Tree die een JSON file kan
 inlezen en omzetten naar de gewenste Tree datastructuur.
