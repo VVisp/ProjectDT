@@ -25,6 +25,11 @@ list<Node<E>*> Node<E>::getChildren() {
     return list<Node *>();
 }
 
+template<typename E>
+void Node<E>::setChildren(Node *ch) {
+    children = ch;
+}
+
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
 /*
 template<typename T>
@@ -74,11 +79,29 @@ template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
+    op = positions.begin(); // Insertion index refers to beginning of positions
 
     if (empty) {
         string el = format(j, "name"); // The JSON object gets converted into a string containing the value of the first key
         root = Position<string> {new Node<string>(el, nullptr, {nullptr})}; // The root node gets initialized
-        empty = true; // The tree is no longer empty
+        empty = false; // The tree is no longer empty
+        positions.insert(op, root); // Insert the root node as the first element of Positions
         size = 1;
     }
+    op++; // Increase insertion index
+
+    json::iterator it = j.at("children").begin();
+    string el = it->at("name").dump();
+    el.erase(el.find('o')); // Remove > and " characters
+    el.erase(remove(el.begin(), el.end(), '"'), el.end()); // TODO: zet deze instructies om
+                                                                            // in een algemenere functie
+
+    positions.insert(op, Position<string>{new Node<string>(el, root.v, {nullptr})}); // Insert another node in front
+                                                                                        // of root in Positions
+
+    for (auto const& i: positions) {
+        cout << i.v->getElement() << endl; // Print de elementen van de Nodes (test)
+    }
+    // TODO: Veralgemeen bovenstaande functies zodat de rest van de boom kan gemaakt worden
+    // TODO: Optimaliseer de code, ruim overbodige stukken op
 }

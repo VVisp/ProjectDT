@@ -30,6 +30,7 @@ public:
     Node* getParent(); //function to get the Parent
     list<Node*> getChildren(); //function to get the Children
     bool isRoot() const; //function to see if a Node is the RootNode
+    void setChildren(Node* ch); // Sets the child of the node
 };
 
 template <typename G>
@@ -44,6 +45,7 @@ private:
     bool empty;
     Position<T> root;
     list<Position<T>> positions;
+    typename list<Position<T>>::iterator op;
 public:
     Tree():size(0), empty(true), root(Position<T>()), positions(list<Position<T>>()){}; // constuctor: constructs a tree with a single root node
     void addNode(); // Add another node to the tree
