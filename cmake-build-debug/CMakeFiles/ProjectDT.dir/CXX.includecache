@@ -350,6 +350,10 @@ tree.cpp
 lib/json.hpp
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/lib/json.hpp
 
+/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.cpp
+simple_format.h
+/Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h
+
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/simple_format.h
 string
 -
