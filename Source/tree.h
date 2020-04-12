@@ -48,6 +48,7 @@ private:
     typename list<Position<T>>::iterator op;
 public:
     Tree():size(0), empty(true), root(Position<T>()), positions(list<Position<T>>()){}; // constuctor: constructs a tree with a single root node
+    ~Tree(); // Destructor
     void addNode(); // Add another node to the tree
 
     int getSize() const; // Number of nodes
