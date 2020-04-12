@@ -42,6 +42,12 @@ Tree<T>::Tree() {
     empty = false;
 }
  */
+template<typename T>
+Tree<T>::~Tree() {
+    for (auto const& i: positions) {
+        delete i.v;
+    }
+}
 
 template<typename T>
 void Tree<T>::addNode() {
@@ -87,14 +93,11 @@ void Tree<E>::load(const string& filename) {
         empty = false; // The tree is no longer empty
         positions.insert(op, root); // Insert the root node as the first element of Positions
         size = 1;
+        op++; // Increase insertion index
     }
-    op++; // Increase insertion index
 
     json::iterator it = j.at("children").begin();
-    string el = it->at("name").dump();
-    el.erase(el.find('o')); // Remove > and " characters
-    el.erase(remove(el.begin(), el.end(), '"'), el.end()); // TODO: zet deze instructies om
-                                                                            // in een algemenere functie
+    string el = format(it, "name");
 
     positions.insert(op, Position<string>{new Node<string>(el, root.v, {nullptr})}); // Insert another node in front
                                                                                         // of root in Positions
@@ -105,3 +108,4 @@ void Tree<E>::load(const string& filename) {
     // TODO: Veralgemeen bovenstaande functies zodat de rest van de boom kan gemaakt worden
     // TODO: Optimaliseer de code, ruim overbodige stukken op
 }
+
