@@ -7,6 +7,7 @@
 
 #include <string>
 #include "lib/json.hpp"
+#include <iostream>
 using json = nlohmann::json;
 
 #ifndef PROJECTDT_SIMPLE_FORMAT_H
@@ -14,5 +15,6 @@ using json = nlohmann::json;
 
 std::string format(json::iterator j, std::string key);
 std::string format(json j, std::string key);
+void example_load(json j);
 
 #endif //PROJECTDT_SIMPLE_FORMAT_H

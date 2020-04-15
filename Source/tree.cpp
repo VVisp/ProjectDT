@@ -85,6 +85,12 @@ template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
+    // TODO: implementeer onderstaande load functie
+    cout << "-------------------------------------------------" << "\n";
+    cout << "This is an example of the recursive load function: " << "\n\n";
+    example_load(j);
+    cout << "-------------------------------------------------" << endl;
+
     op = positions.begin(); // Insertion index refers to beginning of positions
 
     if (empty) {
