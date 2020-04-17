@@ -29,8 +29,6 @@ void example_load(json j) {
             for (auto& element : it.value()) { // Converts non-object into object
                 example_load(element);
             }
-            // This conversion could probably be done without a loop
-            // However, a different solution has not yet been found
         }
     }
 }
