@@ -21,14 +21,31 @@ bool Node<E>::isRoot() const {
 }
 
 template<typename E>
-list<Node<E>*> Node<E>::getChildren() {
-    return list<Node *>();
+Node<E> *Node<E>::getLeft() {
+    return left;
 }
 
 template<typename E>
-void Node<E>::setChildren(Node *ch) {
-    children = ch;
+Node<E> *Node<E>::getRight() {
+    return right;
 }
+
+template<typename E>
+bool Node<E>::isChildless() const {
+    return childless;
+}
+
+template<typename E>
+Node<E>::Node(E el, Node *p, json jch) {
+    element = el;
+    parent = p;
+    if(!jch.is_null()) {
+        left = new Node<E>(jch[0]["name"], this, jch[0]["children"]);
+        right = new Node<E>(jch[1]["name"], this, jch[1]["children"]);
+        childless = false;
+    } else {childless = true;}
+}
+
 
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
 /*
@@ -81,37 +98,27 @@ void Tree<T>::print() {
     cout << "Root with element: " << root.v->getElement() << endl;
 }
 
+template<typename T>
+void Tree<T>::pushNodes(Node<T> *p) {
+    if (!p->isChildless()) {
+        positions.push_back(Position<T>{p->getLeft()});
+        positions.push_back(Position<T>{p->getRight()});
+        pushNodes(p->getLeft());
+        pushNodes(p->getRight());
+    }
+}
+
 template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
-    // TODO: implementeer onderstaande load functie
-    cout << "-------------------------------------------------" << "\n";
-    cout << "This is an example of the recursive load function: " << "\n\n";
-    example_load(j);
-    cout << "-------------------------------------------------" << endl;
 
-    op = positions.begin(); // Insertion index refers to beginning of positions
+    root = Position<E>{new Node<E>(j["name"], nullptr, j["children"])};
+    positions.push_back(root);
 
-    if (empty) {
-        string el = format(j, "name"); // The JSON object gets converted into a string containing the value of the first key
-        root = Position<string> {new Node<string>(el, nullptr, {nullptr})}; // The root node gets initialized
-        empty = false; // The tree is no longer empty
-        positions.insert(op, root); // Insert the root node as the first element of Positions
-        size = 1;
-        op++; // Increase insertion index
-    }
-
-    json::iterator it = j.at("children").begin();
-    string el = format(it, "name");
-
-    positions.insert(op, Position<string>{new Node<string>(el, root.v, {nullptr})}); // Insert another node in front
-                                                                                        // of root in Positions
+    pushNodes(root.v);
 
     for (auto const& i: positions) {
-        cout << i.v->getElement() << endl; // Print de elementen van de Nodes (test)
+        cout << i.v->getElement() << endl;
     }
-    // TODO: Veralgemeen bovenstaande functies zodat de rest van de boom kan gemaakt worden
-    // TODO: Optimaliseer de code, ruim overbodige stukken op
 }
-

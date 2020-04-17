@@ -18,19 +18,24 @@ using namespace std;
 
 template <typename E>
 class Node {
-    typedef list<Node*> NodeArray; //we intruduce NodeArray to intruduce a list of pointers
+    //typedef list<Node*> NodeArray; //we intruduce NodeArray to intruduce a list of pointers
 private:
     E element; //name of the node
     Node* parent; //pointer to the parent
-    NodeArray children; //since  a node can have multiple children, this describes a list of pointers to all children
+    //NodeArray children; //since  a node can have multiple children, this describes a list of pointers to all children
+    Node* left; // Left Child, Assuming a node only has 2 children
+    Node* right; // Right Child
+    bool childless;
 public:
-    Node(): element(), parent(nullptr), children(NULL){}; //default constructor
-    Node(E el, Node* p, NodeArray ch): element(el), parent(p), children(ch){}; //parameter constructor
+    Node(): element(), parent(nullptr), left(nullptr), right(nullptr), childless(true){}; //default constructor
+    Node(E el, Node* p, json jch); //parameter constructor
+    //Node(E el, Node* p, Node* l, Node* r): element(el), parent(p), left(l), right(r){};
     E getElement(); //function to get the Element
     Node* getParent(); //function to get the Parent
-    list<Node*> getChildren(); //function to get the Children
+    Node* getLeft();
+    Node* getRight();
     bool isRoot() const; //function to see if a Node is the RootNode
-    void setChildren(Node* ch); // Sets the child of the node
+    bool isChildless() const;
 };
 
 template <typename G>
@@ -57,14 +62,9 @@ public:
     list<Position<T>> getPositions() const; // Get position of all nodes
 
     void load(const string& filename); //function to load a jsonfile in tree-format
+    void pushNodes(Node<T>* p);
     void print(); // function to print the tree
     //string estimate(... //function to display the value
 };
-
-/*
-template <typename T>
-void Tree<T>::Tree()::rootNode(nullptr), lengte(0){
-}
-*/
 
 #endif //PROJECTDT_TREE_H
