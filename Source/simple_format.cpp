@@ -3,20 +3,10 @@
 //
 #include "simple_format.h"
 
-std::string format(json::iterator j, std::string key) {
-    std::string el = j->at(key).dump();
-    el.erase(el.find('o')); // Remove > and " characters
-    el.erase(remove(el.begin(), el.end(), '"'), el.end());
-
-    return el;
-}
-
-std::string format(json j, std::string key) {
-    std::string el = j.at(key).dump(); // The value of the first key gets converted into a string
-    el.erase(el.find('>')); // Remove > and " characters
-    el.erase(remove(el.begin(), el.end(), '"'), el.end());
-
-    return el;
+std::string format(const json& j) {
+    std::string el = j.dump();
+    el.erase(el.begin());
+    return el.substr(0, el.find(' '));
 }
 
 // Dit is een algemenere, recursieve load functie die ik heb bedacht

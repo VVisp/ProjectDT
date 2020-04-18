@@ -16,6 +16,11 @@ using json = nlohmann::json;
 
 using namespace std;
 
+struct Organ {
+    string model;
+    string condition;
+};
+
 template <typename E>
 class Node {
     //typedef list<Node*> NodeArray; //we intruduce NodeArray to intruduce a list of pointers
@@ -64,7 +69,7 @@ public:
     void load(const string& filename); //function to load a jsonfile in tree-format
     void pushNodes(Node<T>* p);
     void print(); // function to print the tree
-    //string estimate(... //function to display the value
+    string estimate(Organ spec); //function to display the value
 };
 
 #endif //PROJECTDT_TREE_H

@@ -13,8 +13,7 @@ using json = nlohmann::json;
 #ifndef PROJECTDT_SIMPLE_FORMAT_H
 #define PROJECTDT_SIMPLE_FORMAT_H
 
-std::string format(json::iterator j, std::string key);
-std::string format(json j, std::string key);
+std::string format(const json& j);
 void example_load(json j);
 
 #endif //PROJECTDT_SIMPLE_FORMAT_H

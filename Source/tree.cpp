@@ -40,8 +40,8 @@ Node<E>::Node(E el, Node *p, json jch) {
     element = el;
     parent = p;
     if(!jch.is_null()) {
-        left = new Node<E>(jch[0]["name"], this, jch[0]["children"]);
-        right = new Node<E>(jch[1]["name"], this, jch[1]["children"]);
+        left = new Node<E>(format(jch[0]["name"]), this, jch[0]["children"]);
+        right = new Node<E>(format(jch[1]["name"]), this, jch[1]["children"]);
         childless = false;
     } else {childless = true;}
 }
@@ -95,7 +95,6 @@ list<Position<T>> Tree<T>::getPositions() const {
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
-    cout << "Root with element: " << root.v->getElement() << endl;
 }
 
 template<typename T>
@@ -113,12 +112,31 @@ void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
 
-    root = Position<E>{new Node<E>(j["name"], nullptr, j["children"])};
+    root = Position<E>{new Node<E>(format(j["name"]), nullptr, j["children"])};
     positions.push_back(root);
 
     pushNodes(root.v);
-
-    for (auto const& i: positions) {
-        cout << i.v->getElement() << endl;
-    }
 }
+
+template<typename T>
+string Tree<T>::estimate(Organ spec) {
+    // Left = True, Right = False
+    Node<T>* current = root.v;
+    while (!current->isChildless()) {
+        if (spec.model == current->getElement() || spec.condition == current->getElement()) {
+            return current->getLeft()->getElement();
+        }
+        current = current->getRight();
+    }
+    return current->getElement();
+}
+/*
+if (current->isChildless()) {
+return current->getElement();
+}
+if (spec.model == current->getElement()) {
+Node<T> *pricePointer = current->getLeft();
+return pricePointer->getElement();
+}
+current = current->getRight();
+ */
