@@ -7,13 +7,11 @@
 
 #include <string>
 #include "lib/json.hpp"
-#include <iostream>
 using json = nlohmann::json;
 
 #ifndef PROJECTDT_SIMPLE_FORMAT_H
 #define PROJECTDT_SIMPLE_FORMAT_H
 
 std::string format(const json& j);
-void example_load(json j);
 
 #endif //PROJECTDT_SIMPLE_FORMAT_H

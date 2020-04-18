@@ -48,17 +48,7 @@ Node<E>::Node(E el, Node *p, json jch) {
 
 
 // OUT OF LINE DEFINITIONS VAN CLASS TREE
-/*
-template<typename T>
-Tree<T>::Tree() {
-    Node<T> root_node = Node<T>();
-    Position<T> myPosition{};
-    myPosition.v = &root_node;
-    size = 1;
-    root.v = myPosition.v;
-    empty = false;
-}
- */
+
 template<typename T>
 Tree<T>::~Tree() {
     for (auto const& i: positions) {
@@ -116,6 +106,7 @@ void Tree<E>::load(const string& filename) {
     positions.push_back(root);
 
     pushNodes(root.v);
+    empty = false;
 }
 
 template<typename T>
@@ -130,13 +121,3 @@ string Tree<T>::estimate(Organ spec) {
     }
     return current->getElement();
 }
-/*
-if (current->isChildless()) {
-return current->getElement();
-}
-if (spec.model == current->getElement()) {
-Node<T> *pricePointer = current->getLeft();
-return pricePointer->getElement();
-}
-current = current->getRight();
- */
