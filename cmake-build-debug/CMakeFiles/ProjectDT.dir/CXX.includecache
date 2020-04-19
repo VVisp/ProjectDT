@@ -343,6 +343,8 @@ type_traits
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp
 string
 -
+list
+-
 tree.h
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/tree.h
 tree.cpp

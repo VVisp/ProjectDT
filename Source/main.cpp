@@ -30,9 +30,9 @@ void test_estimates() {
     try {
         for (int i = 0; i < fileCount; i++) {
             cout << "======== Begin Test on File " << i+1 << " ========" <<  endl;
-            myTree.load(treeFiles[i]);
+            myTree.load(treeFiles[i]); // Generate a tree with current file
             cout << "------------------------------------" << endl;
-            for (auto const &organ: organs) {
+            for (auto const &organ: organs) { // Estimate the values of ALL possible organs
                 print_estimates(&myTree, organ);
             }
             cout << "======== End Test on File " << i+1 << " ========" <<  endl;
@@ -43,13 +43,13 @@ void test_estimates() {
 }
 
 void print_estimates(Tree<string>* myTree, Organ spec) {
-    string price = myTree->estimate(spec);
+    string price = myTree->estimate(spec); // Gets the estimate price from the tree
     cout << "Model: " << spec.model << ", Condition: " << spec.condition << ", Leslie: " << spec.leslie << '\n';
     cout << "Estimated price is " << price << '\n';
     cout << "------------------------------------" << '\n';
 }
 
-list<Organ> generate_organs() {
+list<Organ> generate_organs() { // Generates a list of Organs with all possible combinations of specifications
     list<Organ> organs;
     const int mCnt = 5;
     const int cCnt = 3;
