@@ -12,7 +12,7 @@ void test_estimates(Tree<string>* myTree, Organ spec);
 int main() {
     Tree<string> myTree = Tree<string>();
     myTree.load("tree.json");
-    myTree.print();
+    myTree.print(myTree.getRoot);
 
     test_estimates(&myTree,Organ{"Model_B3", "None"});
     test_estimates(&myTree,Organ{"None", "Condition_fair"});

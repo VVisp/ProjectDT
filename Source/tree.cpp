@@ -82,10 +82,30 @@ list<Position<T>> Tree<T>::getPositions() const {
     return list<Position<T>>();
 }
 
+/*
 template<typename T>
 void Tree<T>::print() {
     cout << "Tree with root: " << root.v << endl;
+}*/
+
+//De 'children' moet nog gemaakt worden, of vervangen worden door iets anders. Dit is bedoeld een Array van de kinderen te zijn
+template <typename T>
+void Tree<T>::print(Node<T>* node, int spaties) {
+	spaties++; //verhoog de insprong met 1
+	string spatiestring = "    "; //maak een 'insprong'
+	for (int i = 0; i < spaties; i++) { //print het nodige aantal
+		cout << spatiestring;           //insprongen
+	}
+	cout << "->";
+	cout << node->element << endl; //print het effectieve element
+	if (!node->children.empty()) { 
+		for (Node<E>* child : node->children) // print recursief de nodige
+		{                                       //kinderen
+			Print(child, spaties);
+		}
+	}
 }
+
 
 template<typename T>
 void Tree<T>::pushNodes(Node<T> *p) {
