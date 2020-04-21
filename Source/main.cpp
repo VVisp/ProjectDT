@@ -9,21 +9,21 @@ using json = nlohmann::json;
 using namespace std;
 
 void print_estimates(Tree<string>* myTree, Organ spec);
-void test_estimates();
+void test_estimates(const string* treeFiles, int fileCount);
 list<Organ> generate_organs();
 
 int main() {
-    test_estimates();
-    return 0;
-}
-
-void test_estimates() {
     const int fileCount = 5;
     const string treeFiles[fileCount] = {"./trees/rules_d1.json",
                                          "./trees/rules_d2.json",
                                          "./trees/rules_d3.json",
                                          "./trees/rules_d4.json",
                                          "./trees/rules_d5.json"};
+    test_estimates(treeFiles, fileCount);
+    return 0;
+}
+
+void test_estimates(const string* treeFiles, int fileCount) {
     Tree<string> myTree = Tree<string>();
     list<Organ> organs = generate_organs();
 
