@@ -19,6 +19,7 @@ using namespace std;
 struct Organ {
     string model;
     string condition;
+    string leslie;
 };
 
 template <typename E>
