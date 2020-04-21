@@ -91,7 +91,6 @@ void Tree<T>::print() {
 //De 'children' moet nog gemaakt worden, of vervangen worden door iets anders. Dit is bedoeld een Array van de kinderen te zijn
 template <typename T>
 void Tree<T>::print(Node<T>* node, int spaties) {
-    /*
 	spaties++; //verhoog de insprong met 1
 	string spatiestring = "    "; //maak een 'insprong'
 	for (int i = 0; i < spaties; i++) { //print het nodige aantal
@@ -100,12 +99,11 @@ void Tree<T>::print(Node<T>* node, int spaties) {
 	cout << "->";
 	cout << node->element << endl; //print het effectieve element
 	if (!node->children.empty()) { 
-		for (Node<E>* child : node->children) // print recursief de nodige
+		for (Node<T>* child : node->children) // print recursief de nodige
 		{                                       //kinderen
 			Print(child, spaties);
 		}
 	}
-     */
 }
 
 
