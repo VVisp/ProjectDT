@@ -91,6 +91,7 @@ void Tree<T>::print() {
 //De 'children' moet nog gemaakt worden, of vervangen worden door iets anders. Dit is bedoeld een Array van de kinderen te zijn
 template <typename T>
 void Tree<T>::print(Node<T>* node, int spaties) {
+    /*
 	spaties++; //verhoog de insprong met 1
 	string spatiestring = "    "; //maak een 'insprong'
 	for (int i = 0; i < spaties; i++) { //print het nodige aantal
@@ -104,6 +105,7 @@ void Tree<T>::print(Node<T>* node, int spaties) {
 			Print(child, spaties);
 		}
 	}
+     */
 }
 
 
@@ -120,6 +122,9 @@ void Tree<T>::pushNodes(Node<T> *p) {
 template <typename E>
 void Tree<E>::load(const string& filename) {
     ifstream file(filename); //the program reads the file 'filename' and puts it in variable 'file'
+    if (!file) {
+        throw "File not found";
+    }
     json j = json::parse(file); //the 'file' is being put in a json object, using nlohmann's json library
 
     root = Position<E>{new Node<E>(format(j["name"]), nullptr, j["children"])};
@@ -127,6 +132,7 @@ void Tree<E>::load(const string& filename) {
 
     pushNodes(root.v);
     empty = false;
+    file.close();
 }
 
 template<typename T>
@@ -134,8 +140,14 @@ string Tree<T>::estimate(Organ spec) {
     // Left = True, Right = False
     Node<T>* current = root.v;
     while (!current->isChildless()) {
-        if (spec.model == current->getElement() || spec.condition == current->getElement()) {
-            return current->getLeft()->getElement();
+        string el = current->getElement();
+        if (spec.model == el || spec.condition == el || spec.leslie == el) {
+            if (current->getRight()->isChildless() && current->getLeft()->isChildless()) {
+                return current->getLeft()->getElement();
+            } else {
+                current = current->getLeft();
+                continue;
+            }
         }
         current = current->getRight();
     }
