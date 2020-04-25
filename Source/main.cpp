@@ -8,6 +8,7 @@ using namespace std;
 
 void print_estimates(Tree<string>* myTree, Organ spec, ofstream &testOutput);
 void test_estimates(const string* treeFiles, int fileCount, ofstream &testOutput);
+void print_tree(const string* treeFiles, int fileCount);
 list<Organ> generate_organs();
 
 int main() {
@@ -21,9 +22,7 @@ int main() {
 
     // De output van deze functie is zeer lang, i.p.v printen in de console wordt het geschreven naar een extern bestand
     test_estimates(treeFiles, fileCount, testOutput);
-    Tree<string> myTree = Tree<string>();
-    myTree.load(treeFiles[4]);
-    myTree.print(myTree.getRoot().v, 0);
+    print_tree(treeFiles, fileCount);
 
     testOutput.close();
     cout << "Press any button to continue...";
@@ -54,6 +53,32 @@ void print_estimates(Tree<string>* myTree, Organ spec, ofstream &testOutput) {
     testOutput << "Model: " << spec.model << ", Condition: " << spec.condition << ", Leslie: " << spec.leslie << '\n';
     testOutput << "Estimated price is " << price << '\n';
     testOutput << "------------------------------------" << '\n';
+}
+
+void print_tree(const string* treeFiles, int fileCount) {
+    string input;
+    cout << "Would you like to print a tree? [y/n]: " << endl;
+    cin >> input;
+    while (input != "y" && input != "n") {
+        cout << "Invalid answer!" << endl;
+        cout << "Would you like to print a tree? [y/n]: " << endl;
+        cin >> input;
+    }
+    if (input == "y") {
+        string str;
+        cout << "Enter tree number [1 - 5]: " << endl;
+        cin >> str;
+        int i = stoi(str) - 1;
+        while (i < 0 || i > fileCount) {
+            cout << "Invalid number!" << endl;
+            cout << "Enter tree number [1 - 5]: " << endl;
+            cin >> str;
+            i = stoi(str) - 1;
+        }
+        Tree<string> myTree = Tree<string>();
+        myTree.load(treeFiles[i]);
+        myTree.print(myTree.getRoot().v, 0);
+    }
 }
 
 list<Organ> generate_organs() { // Generates a list of Organs with all possible combinations of specifications

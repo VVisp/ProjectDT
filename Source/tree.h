@@ -24,18 +24,15 @@ struct Organ {
 
 template <typename E>
 class Node {
-    //typedef list<Node*> NodeArray; //we intruduce NodeArray to intruduce a list of pointers
 private:
     E element; //name of the node
     Node* parent; //pointer to the parent
-    //NodeArray children; //since  a node can have multiple children, this describes a list of pointers to all children
     Node* left; // Left Child, Assuming a node only has 2 children
     Node* right; // Right Child
     bool childless;
 public:
     Node(): element(), parent(nullptr), left(nullptr), right(nullptr), childless(true){}; //default constructor
     Node(E el, Node* p, json jch); //recursive constructor
-    //Node(E el, Node* p, Node* l, Node* r): element(el), parent(p), left(l), right(r){};
     E getElement(); //function to get the Element
     Node* getParent(); //function to get the Parent
     Node* getLeft();

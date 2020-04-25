@@ -3,7 +3,6 @@
 //
 // Deze file is aangemaakt puur omdat ik op de moment de formatting niet in de tree.cpp kon laten werken
 // Er kan dus een betere manier zijn
-// Er zijn momenteel twee versies van format: één met json::iterator en één met gewone json
 
 #include <string>
 #include "lib/json.hpp"
