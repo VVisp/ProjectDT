@@ -12,7 +12,7 @@ E Node<E>::getElement() {
 
 template<typename E>
 Node<E>* Node<E>::getParent() {
-    return nullptr;
+    return parent;
 }
 
 template<typename E>
@@ -134,12 +134,8 @@ string Tree<T>::estimate(Organ spec) {
     while (!current->isChildless()) {
         string el = current->getElement();
         if (spec.model == el || spec.condition == el || spec.leslie == el) {
-            if (current->getRight()->isChildless() && current->getLeft()->isChildless()) {
-                return current->getLeft()->getElement();
-            } else {
-                current = current->getLeft();
-                continue;
-            }
+            current = current->getLeft();
+            continue;
         }
         current = current->getRight();
     }

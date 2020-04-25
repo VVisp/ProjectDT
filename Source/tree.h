@@ -34,7 +34,7 @@ private:
     bool childless;
 public:
     Node(): element(), parent(nullptr), left(nullptr), right(nullptr), childless(true){}; //default constructor
-    Node(E el, Node* p, json jch); //parameter constructor
+    Node(E el, Node* p, json jch); //recursive constructor
     //Node(E el, Node* p, Node* l, Node* r): element(el), parent(p), left(l), right(r){};
     E getElement(); //function to get the Element
     Node* getParent(); //function to get the Parent

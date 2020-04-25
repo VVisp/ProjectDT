@@ -343,8 +343,6 @@ type_traits
 /Users/stanbrunau/Documents/ProgAlg/ProjectDT/Source/main.cpp
 iostream
 -
-fstream
--
 list
 -
 tree.h
