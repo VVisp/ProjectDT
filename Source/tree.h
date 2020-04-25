@@ -69,7 +69,7 @@ public:
 
     void load(const string& filename); //function to load a jsonfile in tree-format
     void pushNodes(Node<T>* p);
-    void print(Node<T>* node, int spaces = -1); // function to print the tree
+    void print(Node<T>* node, int spaces = -1, string id = "Root"); // function to print the tree
     string estimate(Organ spec); //function to display the value
 };
 

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <list>
 #include "tree.h"
 #include "tree.cpp"
@@ -22,6 +21,9 @@ int main() {
 
     // De output van deze functie is zeer lang, i.p.v printen in de console wordt het geschreven naar een extern bestand
     test_estimates(treeFiles, fileCount, testOutput);
+    Tree<string> myTree = Tree<string>();
+    myTree.load(treeFiles[4]);
+    myTree.print(myTree.getRoot().v, 0);
 
     testOutput.close();
     cout << "Press any button to continue...";
