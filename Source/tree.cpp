@@ -11,16 +11,6 @@ E Node<E>::getElement() {
 }
 
 template<typename E>
-Node<E>* Node<E>::getParent() {
-    return parent;
-}
-
-template<typename E>
-bool Node<E>::isRoot() const {
-    return parent == nullptr;
-}
-
-template<typename E>
 Node<E> *Node<E>::getLeft() {
     return left;
 }
@@ -57,29 +47,8 @@ Tree<T>::~Tree() {
 }
 
 template<typename T>
-void Tree<T>::addNode() {
-
-}
-
-
-template<typename T>
-int Tree<T>::getSize() const {
-    return size;
-}
-
-template<typename T>
-bool Tree<T>::isEmpty() const {
-    return empty;
-}
-
-template<typename T>
 Position<T> Tree<T>::getRoot() const {
     return root;
-}
-
-template<typename T>
-list<Position<T>> Tree<T>::getPositions() const {
-    return list<Position<T>>();
 }
 
 //De 'children' moet nog gemaakt worden, of vervangen worden door iets anders. Dit is bedoeld een Array van de kinderen te zijn

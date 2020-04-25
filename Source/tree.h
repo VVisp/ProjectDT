@@ -34,10 +34,8 @@ public:
     Node(): element(), parent(nullptr), left(nullptr), right(nullptr), childless(true){}; //default constructor
     Node(E el, Node* p, json jch); //recursive constructor
     E getElement(); //function to get the Element
-    Node* getParent(); //function to get the Parent
     Node* getLeft();
     Node* getRight();
-    bool isRoot() const; //function to see if a Node is the RootNode
     bool isChildless() const;
 };
 
@@ -57,12 +55,8 @@ private:
 public:
     Tree():size(0), empty(true), root(Position<T>()), positions(list<Position<T>>()){}; // constuctor: constructs a tree with a single root node
     ~Tree(); // Destructor
-    void addNode(); // Add another node to the tree
 
-    int getSize() const; // Number of nodes
-    bool isEmpty() const; // Is tree empty?
     Position<T> getRoot() const; // Get the root
-    list<Position<T>> getPositions() const; // Get position of all nodes
 
     void load(const string& filename); //function to load a jsonfile in tree-format
     void pushNodes(Node<T>* p);
